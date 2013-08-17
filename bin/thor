@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-var Metrics = require('../metrics')
+var Metrics = require('../lib/metrics')
   , colors = require('colors')
   , async = require('async')
   , path = require('path')
@@ -22,6 +22,7 @@ cli.usage('[options] ws://localhost')
    .option('-G, --generator <file>', 'custom message generators')
    .option('-M, --masked', 'send the messaged with a mask')
    .option('-b, --binary', 'send binary messages instead of utf-8')
+   .option('-s, --sio', 'use a socket.io client')
    .version(require('../package.json').version)
    .parse(process.argv);
 
@@ -48,15 +49,16 @@ var cluster = require('cluster')
   , robin = [];
 
 cluster.setupMaster({
-    exec: path.resolve(__dirname, '../mjolnir.js')
+    exec: path.resolve(__dirname, '../lib/mjolnir.js')
   , silent: false
   , args: [
       cli.generator
       ? path.resolve(process.cwd(), cli.generator)
-      : path.resolve(__dirname, '../generator.js'),
+      : path.resolve(__dirname, '../lib/generator.js'),
       cli.protocol,
       !!cli.masked,
-      !!cli.binary
+      !!cli.binary,
+      !!cli.sio
     ]
 });
 
@@ -70,6 +72,7 @@ Object.keys(cluster.workers).forEach(function each(id) {
 
     switch (data.type) {
       case 'open':
+        //console.log("master got open message...");
         metrics.handshaken(data);
         worker.emit('open::'+ data.id);
 
