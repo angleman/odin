@@ -10,22 +10,29 @@ fixes all of this.
 ## Websocket (ws)
 
 ```
-npm run start-ws
+npm run ws
 thor-hammer --amount 4096 --concurrent 512 ws://localhost:9090
 ```
 
 ## Socket.io
 
 ```
-npm run start-socketio
+npm run socketio
 thor-hammer --amount 4096 --concurrent 512 --transformer socket.io http://localhost:9090
 ```
 
 ## Primus + Websocket
 
 ```
-npm run start-primus-ws
+npm run primus-ws
 thor-hammer --amount 4096 --concurrent 512 --transformer primus-ws http://localhost:9090
+```
+
+## Primus + Socket.io
+
+```
+npm run primus-socketio
+thor-hammer --amount 4096 --concurrent 512 --transformer primus-socketio http://localhost:9090
 ```
 
 ### Dependencies

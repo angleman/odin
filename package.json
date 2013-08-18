@@ -37,9 +37,11 @@
     "thor-hammer": "./bin/thor-hammer"
   },
   "scripts": {
-    "start-ws": "node ./lib/server/ws.js",
-    "start-primus-ws": "node ./lib/server/primus-ws.js",
-    "start-socketio": "node ./lib/server/socket.io.js",
+    "ws": "node ./lib/server/ws.js",
+    "primus-ws": "node ./lib/server/primus-ws.js",
+    "primus-socketio": "node ./lib/server/primus-socketio.js",
+    "primus-engineio": "node ./lib/server/primus-engineio.js",
+    "socketio": "node ./lib/server/socket.io.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "config": {
