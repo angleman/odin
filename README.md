@@ -11,7 +11,7 @@ fixes all of this.
 
 ```
 npm run ws
-thor-hammer --amount 4096 --concurrent 512 ws://localhost:9090
+thor-hammer --amount 4096 --concurrent 512 http://localhost:9090
 ```
 
 ## Sockjs
@@ -26,7 +26,7 @@ thor-hammer --amount 4096 --concurrent 512 --transformer sockjs http://localhost
 
 ```
 npm run socketio
-thor-hammer --amount 4096 --concurrent 512 --transformer socket.io http://localhost:9090
+thor-hammer --amount 4096 --concurrent 512 --transformer socketio http://localhost:9090
 ```
 
 ## Primus + Websocket
