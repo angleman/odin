@@ -35,6 +35,21 @@ npm run primus-socketio
 thor-hammer --amount 4096 --concurrent 512 --transformer primus-socketio http://localhost:9090
 ```
 
+## Primus + Engine.io
+
+```
+npm run primus-engineio
+thor-hammer --amount 4096 --concurrent 512 --transformer primus-engineio http://localhost:9090
+```
+
+## Primus + Sockjs
+
+```
+npm run primus-sockjs
+thor-hammer --amount 4096 --concurrent 512 --transformer primus-sockjs http://localhost:9090
+```
+
+
 ### Dependencies
 
 Thor requires Node.js to be installed on your system. If you don't have Node.js
