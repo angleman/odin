@@ -14,6 +14,14 @@ npm run ws
 thor-hammer --amount 4096 --concurrent 512 ws://localhost:9090
 ```
 
+## Sockjs
+
+```
+npm run sockjs
+thor-hammer --amount 4096 --concurrent 512 --transformer sockjs http://localhost:9090
+```
+
+
 ## Socket.io
 
 ```

@@ -41,6 +41,7 @@
   },
   "scripts": {
     "ws": "node ./lib/server/ws.js",
+    "sockjs": "node ./lib/server/sockjs.js",
     "primus-ws": "node ./lib/server/primus-ws.js",
     "primus-socketio": "node ./lib/server/primus-socketio.js",
     "primus-engineio": "node ./lib/server/primus-engineio.js",
