@@ -46,7 +46,7 @@
     "primus-socketio": "node ./lib/server/primus-socketio.js",
     "primus-engineio": "node ./lib/server/primus-engineio.js",
     "primus-sockjs": "node ./lib/server/primus-sockjs.js",
-    "socketio": "node ./lib/server/socket.io.js",
+    "socketio": "node ./lib/server/socketio.js",
     "sockjs": "node ./lib/server/sockjs.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
