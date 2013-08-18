@@ -7,6 +7,20 @@ they wouldn't be suitable, as they would be testing short running HTTP requests
 instead of long running HTTP requests with a lot of messaging traffic. Thor
 fixes all of this.
 
+## Websocket
+
+```
+npm run start-ws
+thor-hammer --amount 4096 --concurrent 512 ws://localhost:9090
+```
+
+## Socket.io
+
+```
+npm run start-socketio
+thor-hammer --amount 4096 --concurrent 512 --transformer socket.io http://localhost:9090
+```
+
 ### Dependencies
 
 Thor requires Node.js to be installed on your system. If you don't have Node.js
