@@ -31,7 +31,8 @@
     "socket.io": "0.9.16",
     "express": ">= 3.2.6",
     "socket.io-client": "0.9.16",
-    "engine.io": "0.6.3"
+    "engine.io": "0.6.3",
+    "sockjs": "0.3.7"
   },
   "bin": {
     "thor-hammer": "./bin/thor-hammer"
@@ -42,6 +43,7 @@
     "primus-socketio": "node ./lib/server/primus-socketio.js",
     "primus-engineio": "node ./lib/server/primus-engineio.js",
     "socketio": "node ./lib/server/socket.io.js",
+    "sockjs": "node ./lib/server/sockjs.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "config": {
