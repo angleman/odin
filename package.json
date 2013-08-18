@@ -38,6 +38,7 @@
   },
   "scripts": {
     "start-ws": "node ./lib/server/ws.js",
+    "start-primus-ws": "node ./lib/server/primus-ws.js",
     "start-socketio": "node ./lib/server/socket.io.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
