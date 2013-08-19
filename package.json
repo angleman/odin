@@ -40,6 +40,7 @@
     "odin": "./bin/odin"
   },
   "scripts": {
+    "nginx": "sudo nginx -c ./conf/nginx.conf",
     "redis": "redis-server ./conf/redis.conf",
     "ws": "node ./lib/server/ws.js",
     "sockjs": "node ./lib/server/sockjs.js",

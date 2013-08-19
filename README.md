@@ -7,6 +7,17 @@ they wouldn't be suitable, as they would be testing short running HTTP requests
 instead of long running HTTP requests with a lot of messaging traffic. Thor
 fixes all of this.
 
+## Nginx
+
+To test a socket server running via a simple nginx reverse proxy, configure the domain `benchmark.odin.org` to point to the IP address of the socket server and start nginx with the configuration file in this repository.
+
+```
+sudo nginx -s stop
+sudo nginx -c /path/to/odin/conf/nginx.conf
+```
+
+Then use the domain name `benchmark.odin.org` when running `odin`.
+
 ## Websocket (ws)
 
 ```
