@@ -21,13 +21,20 @@ npm run sockjs
 thor-hammer --amount 4096 --concurrent 512 --transformer sockjs http://localhost:9090
 ```
 
-
 ## Socket.io
 
 ```
 npm run socketio
 thor-hammer --amount 4096 --concurrent 512 --transformer socketio http://localhost:9090
 ```
+
+## Express 3 + Socket.io
+
+```
+npm run express-socketio
+thor-hammer --amount 4096 --concurrent 512 --transformer socketio http://localhost:9090
+```
+
 
 ## Primus + Websocket
 
