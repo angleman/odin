@@ -1,0 +1,130 @@
+#!/usr/bin/env node
+'use strict';
+
+var path = require('path');
+var fork = require('child_process').fork;
+var spawn = require('child_process').spawn;
+
+var cli = require('commander');
+var os = require('os');
+
+var Handler = function() {
+  this.lookup = {
+    ws: path.resolve(__dirname + "/../lib/server/ws.js"),
+    sockjs: path.resolve(__dirname + "/../lib/server/sockjs.js"),
+    socketio: path.resolve(__dirname + "/../lib/server/socketio.js"),
+    'redis-socketio': path.resolve(__dirname + "/../lib/server/redis-socketio.js"),
+    'express-socketio': path.resolve(__dirname + "/../lib/server/express-socketio.js"),
+    'primus-ws': path.resolve(__dirname + "/../lib/server/primus-ws.js"),
+    'primus-sockjs': path.resolve(__dirname + "/../lib/server/primus-sockjs.js"),
+    'primus-socketio': path.resolve(__dirname + "/../lib/server/primus-socketio.js"),
+    'primus-engineio': path.resolve(__dirname + "/../lib/server/primus-engineio.js")
+  }
+  var children = this.children = [];
+  var cleanup = function() {
+    for(var i = 0;i < children.length;i++) {
+      try {
+        process.kill(children[i].pid);
+      }catch(e) {
+        console.error(
+          "unable to kill child process with pid %s", children[i].pid);
+      }
+    }
+    children = [];
+    process.exit(0)
+  }
+  process.on('SIGINT', function() {
+    cleanup();
+  });
+  process.on('SIGTERM', function() {
+    cleanup();
+  });
+}
+
+Handler.prototype.start = function(id) {
+  var file = this.lookup[id];
+  var port = cli.port;
+  var start = port, end = port;
+  if(file) {
+    for(var i = 0;i < cli.number;i++) {
+      var child = spawn('node', [file,'--port', port],
+        {
+          detached: true,
+          stdio: ['ignore']
+        });
+      this.children.push(child);
+      console.log("%s spawned on %s with pid %s", id, port, child.pid);
+      port++;
+    }
+  }
+  if(cli.number > 1) {
+    end = port - 1;
+  }
+  console.log(
+    "%s started %s..%s, blocking until int or term signal", id, start, end);
+  process.stdin.resume();
+}
+
+var handler = new Handler();
+
+cli.usage('command [options]')
+  .description('spawns multiple socket servers on incrementing ports')
+  .option('-p, --port <port>', 'port number', parseInt, 10000)
+  .option('-n, --number <servers>', 'number of servers to spawn', parseInt, 1)
+  .version(require('../package.json').version);
+
+cli.command('ws')
+  .description('start websocket server')
+  .action(function(){
+    handler.start('ws');
+  });
+
+cli.command('sockjs')
+  .description('start sockjs server')
+  .action(function(){
+    handler.start('sockjs');
+  });
+
+cli.command('socketio')
+  .description('start socketio server')
+  .action(function(){
+    handler.start('socketio');
+  });
+
+cli.command('redis-socketio')
+  .description('start socketio server with redis store on port 6379')
+  .action(function(){
+    handler.start('redis-socketio');
+  });
+
+cli.command('express-socketio')
+  .description('start socketio server with express router')
+  .action(function(){
+    handler.start('express-socketio');
+  });
+
+cli.command('primus-ws')
+  .description('start primus server with websocket')
+  .action(function(){
+    handler.start('primus-ws');
+  });
+
+cli.command('primus-sockjs')
+  .description('start primus server with sockjs')
+  .action(function(){
+    handler.start('primus-sockjs');
+  });
+
+cli.command('primus-socketio')
+  .description('start primus server with socketio')
+  .action(function(){
+    handler.start('primus-socketio');
+  });
+
+cli.command('primus-engineio')
+  .description('start primus server with engineio')
+  .action(function(){
+    handler.start('primus-engineio');
+  });
+
+cli.parse(process.argv);
