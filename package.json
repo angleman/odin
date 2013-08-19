@@ -1,10 +1,10 @@
 {
-  "name": "thor-hammer",
+  "name": "odin",
   "version": "1.0.2",
   "description": "WebSocket benchmark utility with primus, socket.io support",
   "repository": {
     "type": "git",
-    "url": "https://github.com/freeformsystems/thor-sio.git"
+    "url": "https://github.com/freeformsystems/odin.git"
   },
   "keywords": [
     "WebSocket",
@@ -37,9 +37,10 @@
     "sockjs-client-node": "0.0.0"
   },
   "bin": {
-    "thor-hammer": "./bin/thor-hammer"
+    "odin": "./bin/odin"
   },
   "scripts": {
+    "redis": "redis-server ./conf/redis.conf",
     "ws": "node ./lib/server/ws.js",
     "sockjs": "node ./lib/server/sockjs.js",
     "socketio": "node ./lib/server/socketio.js",
