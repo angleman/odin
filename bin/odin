@@ -40,10 +40,14 @@ if (!cli.args.length) return [
 var transformers = require('../lib/transformer');
 var available = Object.keys(transformers);
 
-if(available.indexOf(cli.transformer) == -1) {
-  console.error("unknown transformer %s", cli.transformer);
-  process.exit(1);
+if(cli.transformer) {
+  if(available.indexOf(cli.transformer) == -1) {
+    console.error("unknown transformer %s", cli.transformer);
+    process.exit(1);
+  }
 }
+
+cli.transformer = cli.transformer || 'ws';
 
 //
 // By Odin's beard, unleash thunder!

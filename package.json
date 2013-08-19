@@ -27,6 +27,7 @@
     "ws": "git://github.com/einaros/ws.git",
     "fast-stats": "git://github.com/bluesmoon/node-faststats.git",
     "sugar": "1.3.8",
+    "nconf": ">= 0.6.7",
     "primus": "1.2.0",
     "socket.io": "0.9.16",
     "express": ">= 3.2.6",
@@ -40,18 +41,16 @@
     "odin": "./bin/odin"
   },
   "scripts": {
-    "nginx": "sudo nginx -c ./conf/nginx.conf",
     "redis": "redis-server ./conf/redis.conf",
-    "ws": "node ./lib/server/ws.js",
-    "sockjs": "node ./lib/server/sockjs.js",
-    "socketio": "node ./lib/server/socketio.js",
-    "redis-socketio": "node ./lib/server/redis-socketio.js",
-    "express-socketio": "node ./lib/server/express-socketio.js",
-    "primus-ws": "node ./lib/server/primus-ws.js",
-    "primus-socketio": "node ./lib/server/primus-socketio.js",
-    "primus-engineio": "node ./lib/server/primus-engineio.js",
-    "primus-sockjs": "node ./lib/server/primus-sockjs.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ws": "node ./lib/server/ws.js --port $npm_package_config_port",
+    "sockjs": "node ./lib/server/sockjs.js --port $npm_package_config_port",
+    "socketio": "node ./lib/server/socketio.js --port $npm_package_config_port",
+    "redis-socketio": "node ./lib/server/redis-socketio.js --port $npm_package_config_port",
+    "express-socketio": "node ./lib/server/express-socketio.js --port $npm_package_config_port",
+    "primus-ws": "node ./lib/server/primus-ws.js --port $npm_package_config_port",
+    "primus-socketio": "node ./lib/server/primus-socketio.js --port $npm_package_config_port",
+    "primus-engineio": "node ./lib/server/primus-engineio.js --port $npm_package_config_port",
+    "primus-sockjs": "node ./lib/server/primus-sockjs.js --port $npm_package_config_port"
   },
   "config": {
     "port": 9090
