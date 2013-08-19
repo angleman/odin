@@ -42,12 +42,12 @@
   "scripts": {
     "ws": "node ./lib/server/ws.js",
     "sockjs": "node ./lib/server/sockjs.js",
+    "socketio": "node ./lib/server/socketio.js",
+    "express-socketio": "node ./lib/server/express-socketio.js",
     "primus-ws": "node ./lib/server/primus-ws.js",
     "primus-socketio": "node ./lib/server/primus-socketio.js",
     "primus-engineio": "node ./lib/server/primus-engineio.js",
     "primus-sockjs": "node ./lib/server/primus-sockjs.js",
-    "socketio": "node ./lib/server/socketio.js",
-    "sockjs": "node ./lib/server/sockjs.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "config": {
