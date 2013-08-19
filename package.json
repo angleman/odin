@@ -1,7 +1,7 @@
 {
-  "name": "odin",
+  "name": "odin-ws",
   "version": "1.0.2",
-  "description": "WebSocket benchmark utility with primus, socket.io support",
+  "description": "WebSocket benchmark utility",
   "repository": {
     "type": "git",
     "url": "https://github.com/freeformsystems/odin.git"
@@ -44,6 +44,7 @@
     "ws": "node ./lib/server/ws.js",
     "sockjs": "node ./lib/server/sockjs.js",
     "socketio": "node ./lib/server/socketio.js",
+    "redis-socketio": "node ./lib/server/redis-socketio.js",
     "express-socketio": "node ./lib/server/express-socketio.js",
     "primus-ws": "node ./lib/server/primus-ws.js",
     "primus-socketio": "node ./lib/server/primus-socketio.js",

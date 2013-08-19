@@ -35,6 +35,13 @@ npm run express-socketio
 thor-hammer --amount 4096 --concurrent 512 --transformer socketio http://localhost:9090
 ```
 
+## Redis + Socket.io
+
+```
+npm run redis
+npm run redis-socketio
+thor-hammer --amount 4096 --concurrent 512 --transformer socketio http://localhost:9090
+```
 
 ## Primus + Websocket
 
