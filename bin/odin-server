@@ -50,7 +50,7 @@ Handler.prototype.start = function(id) {
       var child = spawn('node', [file,'--port', port],
         {
           detached: true,
-          stdio: ['ignore']
+          stdio: ['ignore', process.stdout, process.stderr]
         });
       this.children.push(child);
       console.log("%s spawned on %s with pid %s", id, port, child.pid);

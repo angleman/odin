@@ -53,6 +53,6 @@
     "primus-sockjs": "node ./lib/server/primus-sockjs.js --port $npm_package_config_port"
   },
   "config": {
-    "port": 9090
+    "port": 10000
   }
 }
