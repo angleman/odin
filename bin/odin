@@ -185,6 +185,7 @@ live.stop = function stop() {
   , '- Spawn '+ cli.workers +' workers.'
   , '- Create '+ (cli.concurrent || 'all the') + ' concurrent/parallel connections.'
   , '- Smash '+ (cli.amount || 'infinite') +' connections.'
+  , ''
 ].forEach(function stdout(line) {
   console.log(line);
 });
