@@ -35,7 +35,8 @@
     "engine.io": "0.6.3",
     "engine.io-client": "0.6.3",
     "sockjs": "0.3.7",
-    "sockjs-client-node": "0.0.0"
+    "sockjs-client-node": "0.0.0",
+    "memwatch": "0.2.2"
   },
   "bin": {
     "odin": "./bin/odin"
